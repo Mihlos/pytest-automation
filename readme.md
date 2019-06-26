@@ -4,10 +4,12 @@ https://docs.pytest.org/en/latest/contents.html
 
 ## pytest.ini
 Nos sirve para especificar los nombres de las funciones, clases, files que queremos correr con el comando pytest.
+´´´
 [pytest]
 python_files = test_*
 python_functions = test_*
 python_classes = *Test
+´´´
 
 ## Markers
 from pytest import mark
