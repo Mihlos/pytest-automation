@@ -81,3 +81,36 @@ python -m pytests tests -m nombremarker
 ```
 
 Donde especificamos con -m que ejecutamos pytest como modulo en la caperta tests pero al estar haciendo la llamada desde la carpeta padre es capaz de ver los paquetes de funcs.
+
+# TOX
+
+Modulo que nos ayuda a separar las librerias lógicas de los tests que queremos realizar.
+Además nos permite hacer los mismos tests en diferentes entornos virtuales que queremos darle soporte (env2.7, env3.6...)
+
+```
+pip install tox
+```
+
+Instalar en el entorno raiz ya que lo que nos permite es controlar los diversos entornos virtuales.
+
+Hay que especificar un fichero tox.ini con la configuración. 
+Despues corriendo tox crea los entornos automaticamente, testea lo especificado con las
+'dependencies' y valores especificados.
+
+```
+[tox]
+envlist = py36
+
+[testenv]
+deps = pytest
+
+[pytest]
+python_files = test_*
+python_functions = test_*
+python_classes = *Test
+testpaths = tests
+```
+
+TODO: Comprobar si puedo testear un venv ya creado. 
+Comprobar si tengo que instalar paquetes que se usen o se ponen en el setup...
+
